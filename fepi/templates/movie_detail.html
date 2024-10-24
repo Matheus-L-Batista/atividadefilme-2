@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/movie-detail.css' %}">
+    <title>{{ movie.title }} - FEPI CineClub</title>
+</head>
+<body>
+    <h1>{{ movie.title }}</h1>
+    <div class="movie-detail">
+        <img src="{% static movie.poster %}" alt="{{ movie.title }}">
+        <p><strong>Sinopse:</strong> {{ movie.synopsis }}</p>
+        <h3>Elenco:</h3>
+        <ul>
+            {% for actor in movie.cast %}
+                <li>{{ actor }}</li>
+            {% endfor %}
+        </ul>
+        <h3>Comentários:</h3>
+        <div id="comments-section">
+            <!-- Seção de comentários -->
+        </div>
+    </div>
+</body>
+</html>
